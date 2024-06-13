@@ -4,15 +4,22 @@ import MovieItem from './MovieItem/MovieItem.tsx';
 
 interface Props{
   movieItems:IMovieItems[]
+  removeMovie:(movie:IMovieItems)=>void
+  changeMovieItemsName:(movie:IMovieItems)=>void
 }
-const MovieItems:React.FC<Props> = ({movieItems}) => {
+const MovieItems:React.FC<Props> = ({movieItems, removeMovie, changeMovieItemsName}) => {
   return (
     <>
-      {movieItems.map((movie)=>(
-        <MovieItem
-          key={movie.id}
-          movieItem={movie}/>
-      ))}
+      <div className="p-5">
+        {movieItems.map((movie)=>(
+          <MovieItem
+            key={movie.id}
+            removeMovie={removeMovie}
+            changeMovieItemsName={changeMovieItemsName}
+            movieItem={movie}/>
+        ))}
+
+      </div>
     </>
   );
 };

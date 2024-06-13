@@ -18,21 +18,18 @@ const MovieForm:React.FC<Props> = ({addMovie}) => {
   return (
     <>
       <form onSubmit={onFormSubmit}>
-        <div className="form-group mb-3">
-          <label htmlFor="name"></label>
-          <input
-            onChange={(e)=>setCurrentMovie(e.target.value)}
-            type="text"
-            id="name"
-            name="name"
-            className="form-control"
-            value={currentMovie}/>
-        </div>
-        <button
-          className="col-4 btn btn-primary"
-          type="submit">
-          Add
-        </button>
+          <div className="input-group mb-3 p-5">
+            <label htmlFor="name"></label>
+            <input
+              type="text"
+              className="form-control col-4"
+              id="name"
+              name="name"
+              value={currentMovie}
+              onChange={(e)=>setCurrentMovie(e.target.value)}
+            />
+            <button className="btn btn-outline-secondary col-4" type="submit" id="button-addon2">Button</button>
+          </div>
       </form>
     </>
   );
