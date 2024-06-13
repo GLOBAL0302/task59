@@ -7,6 +7,7 @@ interface Props{
 
 const MovieForm:React.FC<Props> = ({addMovie}) => {
   const [currentMovie, setCurrentMovie] = useState("")
+
   const onFormSubmit = (event:React.FormEvent)=>{
     event.preventDefault()
     addMovie({

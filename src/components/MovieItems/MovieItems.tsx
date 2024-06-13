@@ -8,6 +8,7 @@ interface Props{
   changeMovieItemsName:(movie:IMovieItems)=>void
 }
 const MovieItems:React.FC<Props> = ({movieItems, removeMovie, changeMovieItemsName}) => {
+
   return (
     <>
       <div className="p-5">
@@ -16,7 +17,9 @@ const MovieItems:React.FC<Props> = ({movieItems, removeMovie, changeMovieItemsNa
             key={movie.id}
             removeMovie={removeMovie}
             changeMovieItemsName={changeMovieItemsName}
-            movieItem={movie}/>
+            title={movie.title}
+            id={movie.id}
+            />
         ))}
 
       </div>

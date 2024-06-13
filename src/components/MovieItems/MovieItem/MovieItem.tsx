@@ -4,16 +4,19 @@ import React, {ChangeEvent, useState} from 'react';
 
 
 interface Props{
-  movieItem:IMovieItems
+  title: string
+  id:number
   removeMovie:(movie:IMovieItems)=>void
   changeMovieItemsName:(movie:IMovieItems)=>void
 }
 
-const MovieItem:React.FC<Props> = ({movieItem, removeMovie, changeMovieItemsName}) => {
+const MovieItem:React.FC<Props> = React.memo(({title, id, removeMovie, changeMovieItemsName}) => {
   const [currentMovie, setCurrentMovie] = useState<IMovieItems>({
-    title:movieItem.title,
-    id: movieItem.id
+    title:title,
+    id:id,
   })
+
+
 
   const onChange = (event:ChangeEvent<HTMLInputElement>)=>{
     setCurrentMovie((prevState)=>{
@@ -43,6 +46,9 @@ const MovieItem:React.FC<Props> = ({movieItem, removeMovie, changeMovieItemsName
         alt="cancelPic"/>
     </div>
   );
-};
+}, (prevProps, nextProps)=>{
+  return prevProps.title === nextProps.title &&
+    prevProps.id === nextProps.id
+});
 
 export default MovieItem;
