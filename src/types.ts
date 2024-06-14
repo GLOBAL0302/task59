@@ -6,4 +6,5 @@ export interface IMovieItems{
 export interface IChuckMem{
   id:string
   title:string
+  img:string
 }

@@ -13,14 +13,14 @@ const App = () => {
         {showTask1?<MovieTask/>:""}
         <button
           className="btn btn-primary"
-          onClick={()=>setShowTask1(prevState => !prevState)}>show Movie Task</button>
+          onClick={()=>setShowTask1(prevState => !prevState)}>{showTask1?"Hide Movie Task":"show Movie Task"}</button>
       </div>
       <div>
         {showTask2?<MemTask/>:""}
         <button
           className="btn btn-danger"
           onClick={()=>setShowTask2(prevState => !prevState)}>
-          Show Mem Task
+          {showTask2?"Hide Mem Task":"Show Mem Task"}
         </button>
       </div>
     </>
